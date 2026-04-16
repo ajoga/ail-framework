@@ -26,15 +26,20 @@
   </a>
 </p>
 
-AIL framework is an open-source platform to **collect, crawl, process and analyse unstructured data** from the clear web, Tor, I2P, chats, files and external feeds.
+## What is [AIL](https://ail-project.org)?
 
-Originally developed at [CIRCL](https://www.circl.lu/), AIL helps analysts transform raw, messy content into structured intelligence through extraction, tagging, detection, correlation and investigation workflows.
+AIL is built for analysts who need to work with **messy, real-world data**:
 
-![AIL dashboard](https://www.ail-project.org/assets/img/dashboard.jpeg "AIL dashboard")
+- free text,
+- screenshots,
+- PDFs and files,
+- chat messages,
+- encoded payloads,
+- content collected from web, Tor and I2P sources.
 
-## What is AIL?  https://ail-project.org
+Instead of treating those sources separately, AIL helps turn them into searchable, correlated and actionable intelligence.
 
-AIL (Analysis of Information Leaks) is an open-source framework for the collection, crawling, processing, and analysis of unstructured information. It supports threat intelligence, leak analysis, and investigative workflows by helping analysts extract, detect, correlate, and share relevant information from a wide range of sources.
+It supports threat intelligence, leak analysis, and investigative workflows by helping analysts extract, detect, correlate, and share relevant information from a wide range of sources: clear web, Tor, I2P, chats, files and external feeds.
 
 AIL includes:
 - an **extensible Python-based framework** for processing and analysing unstructured information,
@@ -43,6 +48,8 @@ AIL includes:
 - a **detection and retro-hunt engine** based on keywords, regex and YARA,
 - **search, correlation and investigation** capabilities to pivot across extracted data,
 - and **export/integration** features for platforms such as [MISP](https://github.com/MISP/MISP).
+
+Originally developed at [CIRCL](https://www.circl.lu/).
 
 ## AIL intelligence lifecycle
 
@@ -76,7 +83,7 @@ Highlights include:
 
 ## Features
 
-![AIL internal overview](./doc/screenshots/ail-internal.png?raw=true "AIL internal overview")
+![AIL internal overview](./doc/screenshots/ail-internal.png "AIL internal overview")
 
 ### Collection
 
@@ -154,62 +161,61 @@ AIL also supports **Retro Hunts**, enabling analysts to run newly created YARA r
 - Automatic exports on selected detections and tags
 - Integrations supporting collaborative intelligence and incident-response workflows
 
-## Why AIL?
-
-AIL is built for analysts who need to work with **messy, real-world data**:
-
-- free text,
-- screenshots,
-- PDFs and files,
-- chat messages,
-- encoded payloads,
-- content collected from web, Tor and I2P sources.
-
-Instead of treating those sources separately, AIL helps turn them into searchable, correlated and actionable intelligence.
-
 ## Screenshots
+
+### Main dashboard
+
+![AIL dashboard](https://www.ail-project.org/assets/img/dashboard.jpeg "AIL dashboard")
 
 ### Websites, forums and hidden services
 
-![Domain CIRCL](./doc/screenshots/domain_circl.png?raw=true "Crawled domain view")
+![Domain CIRCL](./doc/screenshots/domain_circl.png "Crawled domain view")
 
 #### Login-protected crawling with pre-recorded session cookies
 
-![Domain cookiejar](./doc/screenshots/crawler-cookiejar-domain-crawled.png?raw=true "Authenticated crawling")
+![Domain cookiejar](./doc/screenshots/crawler-cookiejar-domain-crawled.png "Authenticated crawling")
 
 ### Extracted and decoded files
 
-![Extracted files](./doc/screenshots/decodeds_dashboard.png?raw=true "Decoded files dashboard")
+![Extracted files](./doc/screenshots/decodeds_dashboard.png "Decoded files dashboard")
 
 ### Correlation engine
 
-![Onion Domains Correlations](./doc/screenshots/correlation.png?raw=true "Onion domain correlations")
+![Onion Domains Correlations](./doc/screenshots/correlation.png "Onion domain correlations")
 
-![Correlation decoded image](./doc/screenshots/correlation_decoded_image.png?raw=true "Decoded image correlations")
+![Correlation decoded image](./doc/screenshots/correlation_decoded_image.png "Decoded image correlations")
 
 ### Investigation
 
-![Investigation](./doc/screenshots/investigation_mixer.png?raw=true "Investigation view")
+![Investigation](./doc/screenshots/investigation_mixer.png "Investigation view")
 
 ### Tagging system
 
-![Tags](./doc/screenshots/tags_search.png?raw=true "Tags search")
+![Tags](./doc/screenshots/tags_search.png "Tags search")
 
-![Tags search](./doc/screenshots/tags_search_items.png?raw=true "Tagged items")
+![Tags search](./doc/screenshots/tags_search_items.png "Tagged items")
 
 ### MISP export
 
-![misp_export](./doc/screenshots/misp_export.png?raw=true "MISP export")
+![misp_export](./doc/screenshots/misp_export.png "MISP export")
 
 ### Automatic events and alerts
 
-![tags_misp_auto](./doc/screenshots/tags_misp_auto.png?raw=true "Automatic MISP export")
+![tags_misp_auto](./doc/screenshots/tags_misp_auto.png "Automatic MISP export")
 
 ### UI submission
 
-![ui_submit](./doc/screenshots/ui_submit.png?raw=true "UI importer")
+![ui_submit](./doc/screenshots/ui_submit.png "UI importer")
 
-## Installation
+## Using AIL
+
+### Requirements
+
+- Python 3.8+
+
+[How to size the hardware requirements for AIL?](https://ail-project.org/faq.html)
+
+### Installation
 
 To install the AIL framework:
 
@@ -227,32 +233,11 @@ cd bin
 ./LAUNCH.sh -l
 ```
 
-The default [installing_deps.sh](./installing_deps.sh) script targets Debian and Ubuntu based distributions.
+The web interface is available by default at [https://localhost:7000/](https://localhost:7000/).
 
-### Requirements
+The default credentials can be found in `./DEFAULT_PASSWORD`. That file is removed once the password for the user `admin@admin.test` is changed.
 
-- Python 3.8+
-
-[How to size the hardware requirements for AIL?](https://ail-project.org/faq.html)
-
-### Installation notes
-
-
-Some optional components require additional configuration, including the **Lacus crawler**, the **Meilisearch search indexer**, and the **translation**. See the [HOWTO](https://github.com/ail-project/ail-framework/blob/master/HOWTO.md#crawler) for detailed setup instructions.
-## Starting AIL
-
-```bash
-cd bin
-./LAUNCH.sh -l
-```
-
-The web interface is available at:
-
-```text
-https://localhost:7000/
-```
-
-The default credentials are stored in the `DEFAULT_PASSWORD` file and the file is removed once the password is changed.
+Optional components require additional configuration: the **Lacus crawler**, the **Meilisearch search indexer**, and the **translation**. See the [HOWTO](https://github.com/ail-project/ail-framework/blob/master/HOWTO.md) for detailed setup instructions.
 
 ## Documentation
 
