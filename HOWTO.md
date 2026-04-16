@@ -67,6 +67,7 @@ libretranslate
 
 ### Configuration:
 To enable LibreTranslate for chat translation, edit the LibreTranslate URL in the [./configs/core.cfg](./configs/core.cfg) file under the [Translation] section.
+fdsfdsfds change test
 ```
 [Translation]
 libretranslate = http://127.0.0.1:5000
